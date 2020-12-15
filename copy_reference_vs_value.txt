@@ -1,0 +1,51 @@
+Copy by value and reference in Javascript:
+
+Javascript primitive types include Boolean, null, undefined, String, and Number.
+
+These values when reassigned to another variables will be stored in different memory locations due to their immutable nature.
+
+example:
+
+var a = 'hello'
+var b = a;
+b += ' world'
+console.log(a, b) // a = 'hello'  b = 'hello world'
+
+Here a and b will be pointing to different memory addresses so change in value of one doesn't effect the other
+This behaviour is called copy by value.
+
+However, when we talk about Javascript objects, they behave differently than primitive data types due to their mutable nature.
+
+A variable holding a Javascript object does not store the object itself, rather they store the address of it in memory.
+This translates to storing a reference of the object defined and not its value.
+
+For example, when we define an object like below,
+var obj = {hello: 'world'}
+the object containing the key, value pairs will be stored somewhere in memory and the variable obj only holds the reference (address) to these values.
+
+
+Now if we were to make a copy of an object or array, unlike in case of primitive types only the reference to those values is copied the object itself is not duplicated due to the inherent mutable nature of the data type. This behaviour is called copy by reference.
+
+example:
+let a = {hello: 'world'}
+let b = a
+
+b.hello = 'bye'
+console.log(a,b) //a = {hello: bye} b = {hello: bye}
+
+This is because we are making changes to the object pointing to the same memory address so both variables change.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

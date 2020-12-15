@@ -1,0 +1,38 @@
+What is HTTP:
+HTTP is a application layer protocol sent over a TCP connection that helps in exchanging information between a client and a remote server over the internet. 
+
+#########
+HTTP 1.1
+#########
+
+Before HTTP 1.1, separate TCP connections were made for each request which increased the load on the servers and caused a lot of congestion as client had to make multiple requests to the same server for fetching different elements of the website in a short amount of time.
+
+HTTP/1.1 takes care of this problem by introducing persistent connections and pipe-lining.
+
+Persistent connections and pipe-lining: 
+- With persistent connections, HTTP/1.1 assumes that a TCP connection should be kept open unless directly told to close. This allows the client to send multiple requests along the same connection without waiting for a response to each (pipe-lining), greatly improving the performance of HTTP/1.1 over HTTP/1.0.
+
+- By opening and closing fewer TCP connections, CPU time and memory used for TCP protocol control blocks can be saved.
+
+
+#######
+HTTP 2
+#######
+
+Came in as a successor to HTTP 1.1 to tackle some of the problems with HTTP 1.1 especially in the areas of optimization.
+Needless to say, it is faster than HTTP 1.1 as it provides additional features as discussed below.
+
+Features:
+
+- Multiplexing: Enables Multiple requests (in parallel) over single TCP connection, which enables prioritization of requested files which can speed up page load thereby reducing round trip time.
+
+- Uses HPACK to compress redundant header frames as Both client and server maintain a list of headers used in previous client-server requests.
+
+- Binary Protocol: As opposed to HTTP/1.1, which keeps all requests and responses in plain text format, HTTP/2 uses the binary framing layer to encapsulate all messages in binary format, which makes the network footprint lighter and is less prone to errors.
+
+- Has Server push capability which sends additional data that is anticipated in future requests in the response to the client.
+
+
+References:
+https://www.digitalocean.com/community/tutorials/http-1-1-vs-http-2-what-s-the-difference
+https://medium.com/@factoryhr/http-2-the-difference-between-http-1-1-benefits-and-how-to-use-it-38094fa0e95b
